@@ -23,5 +23,5 @@ fn main() {
             matrix_disks[pointer_for_array][pointer_for_vector] = input_line_int.trim().parse().expect("Input not an integer");
         }
     }
-    let mut matrix_ecc = hamming::add_ecc_disks(input_size_disks, input_size_disk, matrix_disks);
+    let mut matrix_ecc = hamming::add_ecc_disks(input_size_disks, input_size_disk, &mut matrix_disks);
 }
