@@ -1,5 +1,5 @@
 use std::io;
-//mod hamming;
+mod hamming;
 
 
 fn main() {
@@ -27,5 +27,5 @@ fn main() {
             matrix_disks[pointer_for_array][pointer_for_vector] = char_vec[0];
         }
     }
-    //hamming.addEccDisks(matrix_disks);
+    let mut matrix_ecc = hamming.addEccDisks(matrix_disks);
 }
