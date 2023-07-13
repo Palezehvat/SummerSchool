@@ -6,9 +6,9 @@ fn main() {
     let mut input_line_size_disks = String::new();
     let mut input_line_size_disk = String::new();
     println!("Введите колличество дисков: ");
-    io::stdin().read_line(&mut input_line_size_disks);
+    let _ = io::stdin().read_line(&mut input_line_size_disks);
     println!("Введите размер дисков: ");
-    io::stdin().read_line(&mut input_line_size_disk);
+    let _ = io::stdin().read_line(&mut input_line_size_disk);
     let input_size_disks = input_line_size_disks.trim().parse().expect("Input not an integer");
     let input_size_disk = input_line_size_disk.trim().parse().expect("Input not an integer");
     
@@ -19,7 +19,7 @@ fn main() {
     for pointer_for_array in 0..input_size_disks {
         println!("Введите данные, числа: ");
         for pointer_for_vector in 0..input_size_disk {
-            io::stdin().read_line(&mut input_line_int);
+            let _ = io::stdin().read_line(&mut input_line_int);
             matrix_disks[pointer_for_array][pointer_for_vector] = input_line_int.trim().parse().expect("Input not an integer");
             input_line_int = String::new();
         }
