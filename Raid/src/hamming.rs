@@ -4,7 +4,7 @@ fn new_number_for_matrix_ecc(matrix_disks: &mut Vec<Vec<i32>>, pointer_of_all_di
 
     for pointer_of_controling_bits in 0..size_of_controling_bits {
                     
-        let mut result_after_degree = i32::pow(2, pointer_of_controling_bits);
+        let mut result_after_degree = 1 << pointer_of_controling_bits;
         let mut position_for_count_in_matrix = result_after_degree.clone() - 1;
         let mut summary_of_bits = 0;
         let mut counter = 0;
@@ -54,7 +54,7 @@ pub fn fix_errors(input_size_disks: usize, input_size_disk: usize, matrix_disks:
             for pointer in 0..32 {
                 if the_newly_calculated_matrix[pointer_of_all_disks][pointer_of_disk] >> pointer & 1 
                 != matrix_ecc[pointer_of_all_disks][pointer_of_disk] >> pointer & 1 {
-                    error_place += i32::pow(2, pointer);
+                    error_place +=  1 << pointer;
                 }
             }
             if error_place == 0 {
@@ -70,10 +70,10 @@ pub fn fix_errors(input_size_disks: usize, input_size_disk: usize, matrix_disks:
             }
             else {
                 if matrix_ecc[pointer_of_all_disks][pointer_of_disk] >> error_place & 1 == 0 {
-                    matrix_ecc[pointer_of_all_disks][pointer_of_disk] += i32::pow(2, error_place as u32);
+                    matrix_ecc[pointer_of_all_disks][pointer_of_disk] += 1 << error_place;
                 }
                 else {
-                    matrix_ecc[pointer_of_all_disks][pointer_of_disk] -= i32::pow(2, error_place as u32);
+                    matrix_ecc[pointer_of_all_disks][pointer_of_disk] -= 1 << error_place;
                 }
             }
         }
